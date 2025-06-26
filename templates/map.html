@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map of India</title>
+    <link rel="stylesheet" href="/static/stylenav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FF9933;
+        }
+
+        .map-wrapper {
+            border: 8px solid #FF9933;
+            border-radius: 12px;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 0 30px rgba(255, 153, 51, 0.4);
+            margin: 2rem 0;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 600px;
+            position: relative;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .map-container svg {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+        }
+
+        .state {
+            fill: #e0e0e0;
+            stroke: #fff;
+            stroke-width: 1;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .state:hover {
+            fill: #FF9933;
+            stroke: #FF8000;
+            stroke-width: 2;
+            filter: drop-shadow(0 0 8px rgba(255, 153, 51, 0.7));
+        }
+
+        .state.active {
+            fill: #FF9933;
+            stroke: #FF8000;
+            stroke-width: 2;
+            filter: drop-shadow(0 0 5px rgba(255, 153, 51, 0.7));
+        }
+
+        .map-title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 18px;
+            color: #333;
+            border: 3px solid #FF9933;
+            z-index: 4;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            pointer-events: none;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid #FF9933;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .tooltip-emblems {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            border: 2px solid #FF9933;
+            padding: 5px;
+            background: white;
+        }
+
+        .tooltip-emblems img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .tooltip-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #FF9933;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #FF8000;
+        }
+
+        .state-info {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #FF9933;
+            display: none;
+        }
+
+        .state-info h2 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .state-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .map-controls {
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .map-controls button {
+            padding: 0.5rem 1rem;
+            background: #FF9933;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .map-controls button:hover {
+            background: #FF8000;
+        }
+
+        /* Loading Animation Styles */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #FF9933;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-text {
+            position: absolute;
+            top: calc(50% + 40px);
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .state-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            z-index: 4;
+        }
+
+        .state-loading.active {
+            display: block;
+        }
+
+        .pulse {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="navigation_bar.html">HOME</a></li>
+            <li><a href="india.html">MAP</a></li>
+            <li class="dropdown">
+                <a href="#">STATES</a>
+                <div class="dropdown-content">
+                    <div class="column">
+                        <a href="ap.html">Andhra Pradesh</a>
+                        <a href="arunachal.html">Arunachal Pradesh</a>
+                        <a href="assam.html">Assam</a>
+                        <a href="bihar.html">Bihar</a>
+                        <a href="westbengal.html">Bengal</a>
+                        <a href="chhattisgarh.html">Chhatisgard</a>
+                        <a href="Goa.html">Goa</a>
+                    </div>
+                    <div class="column">
+                        <a href="Gujarat.html">Gujarat</a>
+                        <a href="haryana.html">Haryana</a>
+                        <a href="himachal.html">Himachal Pradesh</a>
+                        <a href="Jharkhand.html">Jharkhand</a>
+                        <a href="karnataka.html">Karnataka</a>
+                        <a href="kerala.html">Kerala</a>
+                        <a href="madhyapradesh.html">Madhaya Pradesh</a>
+                    </div>
+                    <div class="column">
+                        <a href="maharstra.html">Maharastra</a>
+                        <a href="meghalaya.html">Meghalaya</a>
+                        <a href="mizoram.html">Mizoram</a>
+                        <a href="nagaland.html">Nagaland</a>
+                        <a href="odisha.html">Odisha</a>
+                        <a href="punjab.html">Punjab</a>
+                        <a href="rajasthan.html">Rajasthan</a>
+                    </div>
+                    <div class="column">
+                        <a href="sikkim.html">Sikkim</a>
+                        <a href="tamilnadu.html">Tamil nadu</a>
+                        <a href="telangana.html">Telangana</a>
+                        <a href="uttarpradesh.html">Uttar Pradesh</a>
+                        <a href="uttarakhand.html">Uttakhand</a>  
+                        <a href="tripura.html">Tripura</a>  
+                        <a href="">Jammu and Kashmir</a>            
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading Map...</div>
+    </div>
+
+    <div class="container">
+        <a href="navigation_bar.html" class="back-button">← Back to Home</a>
+        <div class="content">
+            <h1>Interactive Map of India</h1>
+            <div class="map-controls">
+                <button onclick="resetMap()">Reset Map</button>
+                <button onclick="zoomIn()">Zoom In</button>
+                <button onclick="zoomOut()">Zoom Out</button>
+            </div>
+            <div class="map-wrapper">
+                <div class="map-container">
+                    <div class="map-title">Republic of India</div>
+                    <object id="india-map" data="https://upload.wikimedia.org/wikipedia/commons/5/55/India_states_and_union_territories_map.svg" type="image/svg+xml" width="100%" height="100%">
+                        Your browser does not support SVG
+                    </object>
+                    <div class="tooltip"></div>
+                    <div class="state-loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="state-info">
+                <h2>State Information</h2>
+                <p>Click on a state to view its details.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentZoom = 1;
+        const zoomStep = 0.2;
+        const maxZoom = 3;
+        const minZoom = 0.5;
+        let isLoading = false;
+
+        // State emblems mapping
+        const stateEmblems = {
+            'ap': 'Emblem_of_Andhra_Pradesh.jpg',
+            'arunachal': 'Emblem_of_Arunachal_Pradesh.jpg',
+            'assam': 'Seal_of_Assam.jpg',
+            'bihar': 'Seal_of_Bihar.jpg',
+            'chhattisgarh': 'chhattisgarh.jpg',
+            'goa': 'Goa_India.jpg',
+            'gujarat': 'Gujarat.jpg',
+            'haryana': 'Emblem_of_Haryana.jpg',
+            'himachal': 'himachal.jpg',
+            'jharkhand': 'Jharkhand.jpg',
+            'karnataka': 'karnataka.jpg',
+            'kerala': 'kerala.jpg',
+            'madhyapradesh': 'madhyapradesh.jpg',
+            'maharashtra': 'maharstra.html',
+            'manipur': 'manipur.html',
+            'meghalaya': 'meghalaya.html',
+            'mizoram': 'mizoram.html',
+            'nagaland': 'nagaland.html',
+            'odisha': 'odisha.html',
+            'punjab': 'punjab.html',
+            'rajasthan': 'rajasthan.html',
+            'sikkim': 'sikkim.html',
+            'tamilnadu': 'tamilnadu.html',
+            'telangana': 'telangana.html',
+            'tripura': 'tripura.html',
+            'uttarpradesh': 'uttarpradesh.html',
+            'uttarakhand': 'uttarakhand.html',
+            'westbengal': 'westbengal.html'
+        };
+
+        // Show loading overlay
+        function showLoading() {
+            const overlay = document.querySelector('.loading-overlay');
+            overlay.classList.add('active');
+        }
+
+        // Hide loading overlay
+        function hideLoading() {
+            const overlay = document.querySelector('.loading-overlay');
+            overlay.classList.remove('active');
+        }
+
+        // Show state loading
+        function showStateLoading() {
+            const stateLoading = document.querySelector('.state-loading');
+            stateLoading.classList.add('active');
+        }
+
+        // Hide state loading
+        function hideStateLoading() {
+            const stateLoading = document.querySelector('.state-loading');
+            stateLoading.classList.remove('active');
+        }
+
+        function resetMap() {
+            currentZoom = 1;
+            updateMapZoom();
+        }
+
+        function zoomIn() {
+            if (currentZoom < maxZoom) {
+                currentZoom += zoomStep;
+                updateMapZoom();
+            }
+        }
+
+        function zoomOut() {
+            if (currentZoom > minZoom) {
+                currentZoom -= zoomStep;
+                updateMapZoom();
+            }
+        }
+
+        function updateMapZoom() {
+            const map = document.getElementById('india-map');
+            if (map) {
+                map.style.transform = `scale(${currentZoom})`;
+                map.style.transformOrigin = 'center center';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showLoading();
+            const mapObject = document.getElementById('india-map');
+            const tooltip = document.querySelector('.tooltip');
+            const stateInfo = document.querySelector('.state-info');
+
+            mapObject.addEventListener('load', function() {
+                hideLoading();
+                const svgDoc = mapObject.contentDocument;
+                const states = svgDoc.querySelectorAll('path');
+
+                states.forEach(state => {
+                    state.classList.add('state');
+                    
+                    state.addEventListener('mouseover', function(e) {
+                        const stateId = this.getAttribute('id').toLowerCase();
+                        const stateName = this.getAttribute('title') || this.getAttribute('id');
+                        const emblem = stateEmblems[stateId];
+                        
+                        // Create tooltip content
+                        tooltip.innerHTML = `
+                            <div class="tooltip-emblems">
+                                <img src="${emblem}" alt="${stateName} Emblem" onerror="this.src='emblems.jpg'">
+                            </div>
+                            <div class="tooltip-title">${stateName}</div>
+                        `;
+                        
+                        tooltip.style.display = 'block';
+                        tooltip.style.left = e.pageX + 20 + 'px';
+                        tooltip.style.top = e.pageY + 20 + 'px';
+                    });
+
+                    state.addEventListener('mouseout', function() {
+                        tooltip.style.display = 'none';
+                    });
+
+                    state.addEventListener('click', async function() {
+                        if (isLoading) return;
+                        
+                        const stateId = this.getAttribute('id').toLowerCase();
+                        const stateName = this.getAttribute('title') || this.getAttribute('id');
+                        
+                        // Remove active class from all states
+                        states.forEach(s => s.classList.remove('active'));
+                        
+                        // Add active class to clicked state
+                        this.classList.add('active');
+                        
+                        // Update state info
+                        stateInfo.style.display = 'block';
+                        stateInfo.querySelector('h2').textContent = stateName;
+                        
+                        // Show loading animation
+                        isLoading = true;
+                        showStateLoading();
+                        
+                        try {
+                            // Simulate loading delay
+                            await new Promise(resolve => setTimeout(resolve, 500));
+                            
+                            // Navigate to state page
+                            window.location.href = stateId + '.html';
+                        } catch (error) {
+                            console.error('Error loading state page:', error);
+                            hideStateLoading();
+                            isLoading = false;
+                        }
+                    });
+                });
+            });
+
+            // Update tooltip position on mouse move
+            document.addEventListener('mousemove', function(e) {
+                if (tooltip.style.display === 'block') {
+                    tooltip.style.left = e.pageX + 20 + 'px';
+                    tooltip.style.top = e.pageY + 20 + 'px';
+                }
+            });
+
+            // Handle map loading error
+            mapObject.addEventListener('error', function() {
+                hideLoading();
+                alert('Error loading the map. Please refresh the page.');
+            });
+        });
+    </script>
+</body>
+</html> 

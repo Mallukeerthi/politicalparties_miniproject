@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Political Parties Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .nav {
+            background: linear-gradient(45deg, #FF9933, #FF0000);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav li {
+            position: relative;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 800px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: grid;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 0.5rem;
+            display: block;
+            text-align: left;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a:hover {
+            background: #f0f0f0;
+            color: #FF0000;
+        }
+
+        .wrapper {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FF9933;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #666;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            color: #FF0000;
+            transform: translateX(5px);
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .content h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FF9933;
+        }
+
+        .content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 1024px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+            .dropdown-content {
+                min-width: 600px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .dropdown-content {
+                min-width: 300px;
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #FF9933;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .news-img-thumb {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-right: 1rem;
+            vertical-align: middle;
+            background: #eee;
+        }
+
+        .news-headline-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .news-img-thumb { width: 40px; height: 40px; margin-right: 0.5rem; }
+            .news-headline-row { flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="navigation_bar.html">HOME</a></li>
+            <li><a href="india.html">MAP</a></li>
+            <li class="dropdown">
+                <a href="#">POLITICAL INFO</a>
+                <div class="dropdown-content">
+                    <a href="parliament.html">Parliament</a>
+                    <a href="elections.html">Elections</a>
+                    <a href="parties.html">Political Parties</a>
+                    <a href="constitution.html">Constitution</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">STATES</a>
+                <div class="dropdown-content">
+                    <a href="ap.html">Andhra Pradesh</a>
+                    <a href="arunachal.html">Arunachal Pradesh</a>
+                    <a href="assam.html">Assam</a>
+                    <a href="bihar.html">Bihar</a>
+                    <a href="westbengal.html">Bengal</a>
+                    <a href="chhattisgarh.html">Chhatisgard</a>
+                    <a href="Goa.html">Goa</a>
+                    <a href="Gujarat.html">Gujarat</a>
+                    <a href="haryana.html">Haryana</a>
+                    <a href="himachal.html">Himachal Pradesh</a>
+                    <a href="Jharkhand.html">Jharkhand</a>
+                    <a href="karnataka.html">Karnataka</a>
+                    <a href="kerala.html">Kerala</a>
+                    <a href="madhyapradesh.html">Madhaya Pradesh</a>
+                    <a href="maharstra.html">Maharastra</a>
+                    <a href="meghalaya.html">Meghalaya</a>
+                    <a href="mizoram.html">Mizoram</a>
+                    <a href="nagaland.html">Nagaland</a>
+                    <a href="odisha.html">Odisha</a>
+                    <a href="punjab.html">Punjab</a>
+                    <a href="rajasthan.html">Rajasthan</a>
+                    <a href="sikkim.html">Sikkim</a>
+                    <a href="tamilnadu.html">Tamil nadu</a>
+                    <a href="telangana.html">Telangana</a>
+                    <a href="uttarpradesh.html">Uttar Pradesh</a>
+                    <a href="uttarakhand.html">Uttakhand</a>
+                    <a href="tripura.html">Tripura</a>
+                    <a href="">Jammu and Kashmir</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>Contents</h2>
+            <a href="#em">Emblem</a>
+            <a href="#emi">Emblem of India</a>
+            <a href="#ems">Ruling parties of each State</a>
+            <a href="#rp">Ruling Party</a>
+            <a href="#op">Opposition Party</a>
+            <a href="#pm">Prime Minister of India</a>
+            <a href="#con">Constitution of India</a>
+            <a href="#par">Parliament of India</a>
+            <a href="#ex">Executive of India</a>
+            <a href="#ju">Judiciary of India</a>
+        </div>
+
+        <div class="content">
+            <section id="em">
+                <h1>Emblem</h1>
+                <p>
+                    An emblem is an abstract or representational pictorial image that represents a concept, like a moral truth, or an allegory, or a person, like a monarch or saint.
+                </p>
+            </section>
+
+            <section id="emi">
+                <h1>Indian Emblem</h1>
+                <img src="https://th.bing.com/th?id=OSK.HEROYRmrW72SyZ615gj2ps1T6XUgZT__79Oel78DfVsX5bE&w=472&h=280&c=1&rs=2&o=6&dpr=1.3&pid=SANGAM" alt="Indian Emblem">
+                <p>
+                    The State Emblem of India is the national emblem of the Republic of India and is used by the union government, many state governments, and other government agencies. The emblem is an adaptation of the Lion Capital of Ashoka, an ancient sculpture dating back to 280 BCE during the Maurya Empire. The statue is a three dimensional emblem showing four lions. It became the emblem of the Dominion of India in December 1947, and later the emblem of the Republic of India. The State Emblem of India is an official seal of the Government of India. It is used as the national emblem of India and appears on official documents, currency and passports.
+                </p>
+            </section>
+
+            <section id="ems">
+                <h1>Ruling parties of each State</h1>
+                <img src="/static/emblems.jpg" alt="State Emblems" style="display: block; margin: 2rem auto;">
+            </section>
+
+            <section id="rp">
+                <h1>Ruling Party of India</h1>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_488MPul02FNPgHQeYfHbaQ5raI_Rv440jg&usqp=CAU" alt="BJP Logo" style="display: block; margin: 2rem auto;">
+                <p>
+                    The Bharatiya Janata Party is a political party in India and one of the two major Indian political parties alongside the Indian National Congress. Since 2014, it has been the ruling political party in India under the incumbent Prime Minister Narendra Modi. The BJP is aligned with right-wing politics and has close ideological and organisational links to the Rashtriya Swayamsevak Sangh (RSS) volunteer paramilitary organisation. Its policies adhere to Hindutva, a Hindu nationalist ideology. As of December 2023, it is the country's biggest political party in terms of representation in the Parliament of India as well as state legislatures.
+                </p>
+            </section>
+
+            <section id="op">
+                <h1>Opposition Party of India</h1>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSCkPWNKRUxgyEKIJ-pcUUJRJEbHlm6C4k5A&usqp=CAU" alt="Congress Logo" style="display: block; margin: 2rem auto;">
+                <p>
+                    Congress is one of the two major political parties in India, alongside the Bharatiya Janata Party. It is a "big tent" party whose platform is generally considered to lie in the centre of Indian politics. The Party held its first session in 1885 in Bombay where W.C. Bonnerjee presided over it. After Indian independence in 1947, Congress emerged as a catch-all and secular party, dominating Indian politics for the next 50 years.
+                </p>
+            </section>
+
+            <section id="pm">
+                <h1>Prime Minister of India</h1>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvh2hrAXCOWHXDeyKAVxEwNClrAURdUrRFrw&usqp=CAU" alt="Prime Minister" style="display: block; margin: 2rem auto;">
+                <p>
+                    Narendra Damodardas Modi is an Indian politician who has served as the 14th prime minister of India since May 2014. Modi was the chief minister of Gujarat from 2001 to 2014 and is the Member of Parliament (MP) for Varanasi. He is a member of the Bharatiya Janata Party (BJP) and of the Rashtriya Swayamsevak Sangh (RSS), a right wing Hindu nationalist paramilitary volunteer organisation. He is the longest-serving prime minister from outside the Indian National Congress.
+                </p>
+                <p>
+                    Modi was born and raised in Vadnagar in northeastern Gujarat, where he completed his secondary education. He was introduced to the RSS at the age of eight. His account of helping his father sell tea at the Vadnagar railway station has not been reliably corroborated. At age 18, he was married to Jashodaben Modi, whom he abandoned soon after, only publicly acknowledging her four decades later when legally required to do so. Modi became a full-time worker for the RSS in Gujarat in 1971. The RSS assigned him to the BJP in 1985 and he held several positions within the party hierarchy until 2001, rising to the rank of general secretary.
+                </p>
+            </section>
+
+            <section id="con">
+                <h1>Constitution of India</h1>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Constitution_of_India.jpg/330px-Constitution_of_India.jpg" alt="Constitution of India" style="display: block; margin: 2rem auto;">
+                <p>
+                    The Constitution of India is the supreme law of India. The document lays down the framework that demarcates fundamental political code, structure, procedures, powers, and duties of government institutions and sets out fundamental rights, directive principles, and the duties of citizens, based on the proposal suggested by M. N. Roy. It is the longest written national constitution in the world. It imparts constitutional supremacy (not parliamentary supremacy, since it was created by a constituent assembly rather than Parliament) and was adopted by its people with a declaration in its preamble. Parliament cannot override the constitution.
+                </p>
+                <p>
+                    It was adopted by the Constituent Assembly of India on 26 November 1949 and became effective on 26 January 1950. The constitution replaced the Government of India Act 1935 as the country's fundamental governing document, and the Dominion of India became the Republic of India. To ensure constitutional autochthony, its framers repealed prior acts of the British parliament in Article 395. India celebrates its constitution on 26 January as Republic Day. The constitution declares India a sovereign, socialist, secular, and democratic republic, assures its citizens justice, equality, and liberty, and endeavours to promote fraternity. The original 1950 constitution is preserved in a nitrogen-filled case at the Parliament House in New Delhi.
+                </p>
+                <p class="info-link">
+                    <strong>For more information refer to the link provided below:</strong><br>
+                    <a href="https://legislative.gov.in/constitution-of-india/" target="_blank">https://legislative.gov.in/constitution-of-india/</a>
+                </p>
+            </section>
+
+            <section id="par">
+                <h1>Parliament of India</h1>
+                <img src="/static/parl.jpeg" alt="Parliament of India" style="display: block; margin: 2rem auto;">
+                <p>
+                    The Parliament of India (IAST: Bhāratīya Sansad) is the supreme legislative body of the Republic of India. It is a bicameral legislature composed of the Rajya Sabha (Council of States) and the Lok Sabha (House of the People). The President of India, in their role as head of the legislature, has full powers to summon and prorogue either house of Parliament or to dissolve the Lok Sabha, but they can exercise these powers only upon the advice of the Prime Minister and their Union Council of Ministers.
+                </p>
+                <p>
+                    Those elected or nominated (by the president) to either house of Parliament are referred to as members of Parliament (MPs). The members of parliament of the Lok Sabha are directly elected by the Indian public voting in single-member districts and the members of parliament of the Rajya Sabha are elected by the members of all state legislative assemblies by proportional representation. The Parliament has a sanctioned strength of 550 in the Lok Sabha and 250 in the Rajya Sabha including 12 nominees from the expertise of different fields of literature, art, science, and social service. The Parliament meets at Sansad Bhavan in New Delhi.
+                </p>
+                <h3>History</h3>
+                <p>
+                    During British rule, the legislative branch of India was the Imperial Legislative Council, which was created in 1861 via the Indian Councils Act of 1861 and disbanded in 1947, when India gained independence. Following independence, the Constituent Assembly of India was elected to write the Constitution of India. In 1950 after the constitution came into force, the Constituent Assembly of India was disbanded, and succeeded by the Parliament of India, which is active to this day.
+                </p>
+                <p class="info-link">
+                    <strong>For more information refer to the link provided below:</strong><br>
+                    <a href="https://mpa.gov.in/" target="_blank">https://mpa.gov.in/</a>
+                </p>
+            </section>
+
+            <section id="ex">
+                <h1>Executive</h1>
+                <p>
+                    The executive of government is the one that has sole authority and responsibility for the daily administration of the state bureaucracy. The division of power into separate branches of government is central to the republican idea of the separation of powers.
+                </p>
+                <h3>President</h3>
+                <p>
+                    The executive power is vested mainly in the President of India, as per Article 53(1) of the constitution. The president has all constitutional powers and exercises them directly or through subordinate officers as per the aforesaid Article 53(1). The president is to act following aid and advice tendered by the Prime Minister, who leads the Council of Ministers as described in Article 74 of the Constitution.
+                </p>
+                <p>
+                    The council of ministers remains in power during the 'pleasure' of the president. However, in practice, the council of ministers must retain the support of the Lok Sabha. If a president were to dismiss the council of ministers on his or her initiative, it might trigger a constitutional crisis. Thus, in practice, the Council of Ministers cannot be dismissed as long as it holds the support of a majority in the Lok Sabha.
+                </p>
+                <p class="info-link">
+                    <strong>For more information refer to the link provided below:</strong><br>
+                    <a href="https://knowindia.india.gov.in/profile/the-union/executive.php" target="_blank">https://knowindia.india.gov.in/profile/the-union/executive.php</a>
+                </p>
+            </section>
+
+            <section id="ju">
+                <h1>Judiciary of India</h1>
+                <img src="/static/court.jpeg" alt="Supreme Court of India" style="display: block; margin: 2rem auto;">
+                <p>
+                    The judiciary of India is a system of courts that interpret and apply the law in the Republic of India. India uses a common law system, first introduced by the British East India Company and with influence from other colonial powers and Indian princely states, as well as practices from ancient and medieval times. The Constitution of India provides concept for a single and unified judiciary in India.
+                </p>
+                <p>
+                    The judicial system is structured in three levels with subsidiary parts. The Supreme Court, also known as the Apex Court, is the top court and the ultimate appellate court in India. The Chief Justice of India leads that court. High Courts are the top judicial bodies in individual states, controlled and managed by state Chief Justices. Below the High Courts are District Courts, also known as subordinate courts, that are controlled and managed by District and Sessions Judges. The lower subordinate courts are Civil Court and the District Munsif Court, headed by a Sub-Judge. The higher subordinate court, Criminal Court, is headed by Chief Judicial/Metropolitan Magistrate at top and followed by ACJM /ACMM and JM/MM at the lower level.
+                </p>
+                <p class="info-link">
+                    <strong>For more information refer to the link provided below:</strong><br>
+                    <a href="https://legalaffairs.gov.in/sites/default/files/chapter%207.pdf" target="_blank">https://legalaffairs.gov.in/sites/default/files/chapter%207.pdf</a>
+                </p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

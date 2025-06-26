@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Elections Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FF9933;
+        }
+
+        h2 {
+            color: #444;
+            margin: 1.5rem 0 1rem;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #FF9933;
+        }
+
+        .info-card h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #FF9933;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #FF8000;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            padding: 1rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #FF9933;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 1.5rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #FF9933;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="navigation_bar.html" class="back-button">← Back to Home</a>
+        <div class="content">
+            <h1>Indian Electoral System</h1>
+            
+            <div class="image-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Indian_general_election_2019_voting.jpg/1200px-Indian_general_election_2019_voting.jpg" alt="Indian Elections">
+            </div>
+
+            <div class="info-card">
+                <h3>Overview</h3>
+                <p>India is the world's largest democracy, with over 900 million eligible voters. The electoral system is based on universal adult suffrage, where every citizen above 18 years of age has the right to vote.</p>
+            </div>
+
+            <h2>Types of Elections</h2>
+            <div class="info-card">
+                <h3>General Elections</h3>
+                <p>Held every five years to elect members of the Lok Sabha (Lower House of Parliament). The party or coalition with a majority forms the government.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>State Assembly Elections</h3>
+                <p>Conducted to elect members of the State Legislative Assemblies. Each state has its own election schedule.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Local Body Elections</h3>
+                <p>Include elections for Municipal Corporations, Municipal Councils, and Panchayats (village councils).</p>
+            </div>
+
+            <h2>Electoral Process</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Voter Registration</h3>
+                    <p>Citizens must register with the Election Commission to get their Voter ID card.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Nomination</h3>
+                    <p>Candidates file their nominations with the Returning Officer.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Campaigning</h3>
+                    <p>Political parties and candidates campaign for votes within the specified period.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Polling</h3>
+                    <p>Voters cast their votes using Electronic Voting Machines (EVMs).</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Counting</h3>
+                    <p>Votes are counted and results are declared by the Election Commission.</p>
+                </div>
+            </div>
+
+            <h2>Electoral Reforms</h2>
+            <div class="info-card">
+                <h3>Recent Changes</h3>
+                <p>Introduction of Electronic Voting Machines (EVMs), Voter Verified Paper Audit Trail (VVPAT), and online voter registration have modernized the electoral process.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Model Code of Conduct</h3>
+                <p>A set of guidelines issued by the Election Commission to ensure free and fair elections. It regulates the conduct of political parties and candidates during elections.</p>
+            </div>
+
+            <h2>Election Commission</h2>
+            <div class="info-card">
+                <h3>Role and Responsibilities</h3>
+                <p>The Election Commission of India is an autonomous constitutional authority responsible for administering election processes. It ensures free and fair elections, implements the Model Code of Conduct, and oversees the entire electoral process.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

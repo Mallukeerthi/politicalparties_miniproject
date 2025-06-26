@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meghalaya - State Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .state-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .state-header h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .state-emblem {
+            width: 200px;
+            height: auto;
+            margin: 1rem auto;
+        }
+
+        .info-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #FF9933;
+        }
+
+        .info-section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FF9933;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .info-card h3 {
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .party-section {
+            margin: 2rem 0;
+        }
+
+        .party-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .party-logo {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .party-info h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .party-info p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #FF9933;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #FF8000;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="navigation_bar.html">HOME</a></li>
+            <li><a href="india.html">MAP</a></li>
+            <li class="dropdown">
+                <a href="#">STATES</a>
+                <div class="dropdown-content">
+                    <div class="column">
+                        <a href="ap.html">Andhra Pradesh</a>
+                        <a href="arunachal.html">Arunachal Pradesh</a>
+                        <a href="assam.html">Assam</a>
+                        <a href="bihar.html">Bihar</a>
+                        <a href="westbengal.html">Bengal</a>
+                        <a href="chhattisgarh.html">Chhatisgard</a>
+                        <a href="Goa.html">Goa</a>
+                    </div>
+                    <div class="column">
+                        <a href="Gujarat.html">Gujarat</a>
+                        <a href="haryana.html">Haryana</a>
+                        <a href="himachal.html">Himachal Pradesh</a>
+                        <a href="Jharkhand.html">Jharkhand</a>
+                        <a href="karnataka.html">Karnataka</a>
+                        <a href="kerala.html">Kerala</a>
+                        <a href="madhyapradesh.html">Madhaya Pradesh</a>
+                    </div>
+                    <div class="column">
+                        <a href="maharstra.html">Maharastra</a>
+                        <a href="meghalaya.html">Meghalaya</a>
+                        <a href="mizoram.html">Mizoram</a>
+                        <a href="nagaland.html">Nagaland</a>
+                        <a href="odisha.html">Odisha</a>
+                        <a href="punjab.html">Punjab</a>
+                        <a href="rajasthan.html">Rajasthan</a>
+                    </div>
+                    <div class="column">
+                        <a href="sikkim.html">Sikkim</a>
+                        <a href="tamilnadu.html">Tamil nadu</a>
+                        <a href="telangana.html">Telangana</a>
+                        <a href="uttarpradesh.html">Uttar Pradesh</a>
+                        <a href="uttarakhand.html">Uttakhand</a>  
+                        <a href="tripura.html">Tripura</a>  
+                        <a href="">Jammu and Kashmir</a>            
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <a href="navigation_bar.html" class="back-button">← Back to Home</a>
+        <div class="content">
+            <div class="state-header">
+                <h1>Meghalaya</h1>
+                <img src="meghalaya.jpg" alt="Meghalaya Emblem" class="state-emblem">
+                <p>Abode of Clouds</p>
+            </div>
+
+            <div class="info-section">
+                <h2>State Overview</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Capital</h3>
+                        <p>Shillong</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Largest City</h3>
+                        <p>Shillong</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Population</h3>
+                        <p>2.96 million (2011 census)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Area</h3>
+                        <p>22,429 km²</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Languages</h3>
+                        <p>Khasi, Garo, English</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>State Animal</h3>
+                        <p>Clouded Leopard</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>State Emblem</h2>
+                <p>The emblem of Meghalaya features the state's name in English and Khasi, along with traditional tribal motifs. The design symbolizes the state's rich cultural heritage and its commitment to progress and development.</p>
+            </div>
+
+            <div class="info-section">
+                <h2>Political Information</h2>
+                <div class="party-section">
+                    <div class="party-card">
+                        <img src="npp.jpg" alt="NPP Logo" class="party-logo">
+                        <div class="party-info">
+                            <h3>Ruling Party: National People's Party (NPP)</h3>
+                            <p>The National People's Party is a national-level political party in India, though its influence is mostly concentrated in the state of Meghalaya. The party was founded by P.A. Sangma in 2013 and is currently led by his son Conrad Sangma.</p>
+                        </div>
+                    </div>
+
+                    <div class="party-card">
+                        <img src="Congress.jpg" alt="Congress Logo" class="party-logo">
+                        <div class="party-info">
+                            <h3>Opposition Party: Indian National Congress (INC)</h3>
+                            <p>The Indian National Congress is one of the oldest political parties in India, founded in 1885. It played a crucial role in India's independence movement and has been a major political force in post-independence India. The party's platform is generally considered to lie in the centre of Indian politics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>State Government</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Chief Minister</h3>
+                        <p>Conrad Sangma</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Governor</h3>
+                        <p>Phagu Chauhan</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Legislative Assembly</h3>
+                        <p>60 seats</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Lok Sabha Seats</h3>
+                        <p>2 seats</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Political Parties Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FF9933;
+        }
+
+        h2 {
+            color: #444;
+            margin: 1.5rem 0 1rem;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .party-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #FF9933;
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .party-logo {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .party-info h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .party-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #FF9933;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #FF8000;
+        }
+
+        .party-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .stat-item h4 {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: #333;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .state-collapsible {
+            background: #e3f2fd;
+            color: #333;
+            cursor: pointer;
+            padding: 1rem;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            transition: background 0.3s;
+        }
+        .state-collapsible.active, .state-collapsible:hover {
+            background: #bbdefb;
+        }
+        .state-content {
+            padding: 0 1.5rem 1rem 1.5rem;
+            display: none;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .state-party-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .state-party-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            width: 250px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .state-party-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+        .state-party-card h4 {
+            margin: 0.5rem 0 0.2rem 0;
+            color: #1976d2;
+        }
+        .state-party-card p {
+            font-size: 0.95rem;
+            color: #444;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="navigation_bar.html" class="back-button">← Back to Home</a>
+        <div class="content">
+            <!-- BEGIN: State-wise Political Parties (Minimum 7 per State) -->
+            <h2>State-wise Major Political Parties (at least 7 per state)</h2>
+            <button class="state-collapsible">Andhra Pradesh</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/YSR_Congress_Party_flag.png" class="state-party-logo" alt="YSRCP Logo">
+                        <h4>YSR Congress Party (YSRCP)</h4>
+                        <p>Dominant party in Andhra Pradesh, led by Y. S. Jagan Mohan Reddy.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Telugu_Desam_Party_flag.svg" class="state-party-logo" alt="TDP Logo">
+                        <h4>Telugu Desam Party (TDP)</h4>
+                        <p>Founded by N. T. Rama Rao, currently led by N. Chandrababu Naidu.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Aam_Aadmi_Party_Flag.svg" class="state-party-logo" alt="AAP Logo">
+                        <h4>Aam Aadmi Party (AAP)</h4>
+                        <p>Active in Andhra Pradesh, known for anti-corruption and governance reforms.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>National party with a presence in Andhra Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Historic party, now a minor player in the state.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Jana_Sena_Party_Flag.png" class="state-party-logo" alt="Jana Sena Logo">
+                        <h4>Jana Sena Party (JSP)</h4>
+                        <p>Founded by actor Pawan Kalyan, focuses on youth and social justice.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party with a long history in Andhra Pradesh.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="state-collapsible">Tamil Nadu</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Dravida_Munnetra_Kazhagam_flag.svg" class="state-party-logo" alt="DMK Logo">
+                        <h4>Dravida Munnetra Kazhagam (DMK)</h4>
+                        <p>Major Dravidian party, currently ruling Tamil Nadu, led by M. K. Stalin.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/All_India_Anna_Dravida_Munnetra_Kazhagam_flag.svg" class="state-party-logo" alt="AIADMK Logo">
+                        <h4>All India Anna Dravida Munnetra Kazhagam (AIADMK)</h4>
+                        <p>Major Dravidian party, founded by M. G. Ramachandran, led by Edappadi K. Palaniswami.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>National party with a growing presence in Tamil Nadu.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>National party, part of the DMK-led alliance in the state.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, part of the DMK alliance in Tamil Nadu.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, part of the DMK alliance in Tamil Nadu.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Pattali_Makkal_Katchi_flag.png" class="state-party-logo" alt="PMK Logo">
+                        <h4>Pattali Makkal Katchi (PMK)</h4>
+                        <p>Regional party, influential among the Vanniyar community.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="state-collapsible">Maharashtra</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Shiv_Sena_flag.svg" class="state-party-logo" alt="Shiv Sena Logo">
+                        <h4>Shiv Sena (UBT)</h4>
+                        <p>Major party, currently led by Uddhav Thackeray (UBT faction).</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Nationalist_Congress_Party_flag.svg" class="state-party-logo" alt="NCP Logo">
+                        <h4>Nationalist Congress Party (NCP)</h4>
+                        <p>Founded by Sharad Pawar, split into two factions (Sharad Pawar and Ajit Pawar).</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>National party, major force in Maharashtra politics.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>National party, part of the MVA alliance in the state.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Maharashtra.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Maharashtra.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Janata_Dal_%28United%29_flag.svg" class="state-party-logo" alt="JD(U) Logo">
+                        <h4>Janata Dal (United) [JD(U)]</h4>
+                        <p>Regional party, part of alliances in Maharashtra.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="state-collapsible">West Bengal</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/All_India_Trinamool_Congress_flag.svg" class="state-party-logo" alt="TMC Logo">
+                        <h4>All India Trinamool Congress (TMC)</h4>
+                        <p>Dominant party in West Bengal, led by Mamata Banerjee.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>National party, main opposition in West Bengal.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>National party, part of the Left-Congress alliance in the state.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, once dominant in West Bengal.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, part of the Left Front in West Bengal.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/All_India_Forward_Bloc_flag.svg" class="state-party-logo" alt="AIFB Logo">
+                        <h4>All India Forward Bloc (AIFB)</h4>
+                        <p>Left-wing party, part of the Left Front in West Bengal.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Revolutionary_Socialist_Party_flag.svg" class="state-party-logo" alt="RSP Logo">
+                        <h4>Revolutionary Socialist Party (RSP)</h4>
+                        <p>Left-wing party, part of the Left Front in West Bengal.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="state-collapsible">Uttar Pradesh</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Currently ruling party in Uttar Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Samajwadi_Party_flag.svg" class="state-party-logo" alt="SP Logo">
+                        <h4>Samajwadi Party (SP)</h4>
+                        <p>Major opposition party, led by Akhilesh Yadav.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>Major party representing Bahujans, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>National party, with a presence in Uttar Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Uttar Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Uttar Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Rashtriya_Lok_Dal_flag.svg" class="state-party-logo" alt="RLD Logo">
+                        <h4>Rashtriya Lok Dal (RLD)</h4>
+                        <p>Regional party, influential in western Uttar Pradesh.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="state-collapsible">Karnataka</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Major national party, has ruled Karnataka multiple times.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Currently ruling party in Karnataka, led by Siddaramaiah.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Janata_Dal_%28Secular%29_flag.svg" class="state-party-logo" alt="JD(S) Logo">
+                        <h4>Janata Dal (Secular) [JD(S)]</h4>
+                        <p>Regional party, led by H. D. Deve Gowda and H. D. Kumaraswamy.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Karnataka.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Karnataka.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Aam_Aadmi_Party_Flag.svg" class="state-party-logo" alt="AAP Logo">
+                        <h4>Aam Aadmi Party (AAP)</h4>
+                        <p>Active in Karnataka, known for anti-corruption and governance reforms.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Karnataka, led by Mayawati.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="state-collapsible">Kerala</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Currently ruling party in Kerala, led by Pinarayi Vijayan.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Major left party, part of the Left Democratic Front (LDF).</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Main opposition party, leads the United Democratic Front (UDF).</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>National party, with a growing presence in Kerala.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Indian_Union_Muslim_League_flag.svg" class="state-party-logo" alt="IUML Logo">
+                        <h4>Indian Union Muslim League (IUML)</h4>
+                        <p>Key UDF ally, influential among Kerala's Muslim community.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Kerala_Congress_%28M%29_flag.svg" class="state-party-logo" alt="Kerala Congress (M) Logo">
+                        <h4>Kerala Congress (M)</h4>
+                        <p>Regional party, currently part of the LDF.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Revolutionary_Socialist_Party_flag.svg" class="state-party-logo" alt="RSP Logo">
+                        <h4>Revolutionary Socialist Party (RSP)</h4>
+                        <p>Left-wing party, part of the LDF in Kerala.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- GUJARAT -->
+            <button class="state-collapsible">Gujarat</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Currently ruling party in Gujarat, dominant since 1995.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Main opposition party, with a long history in Gujarat.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Aam_Aadmi_Party_Flag.svg" class="state-party-logo" alt="AAP Logo">
+                        <h4>Aam Aadmi Party (AAP)</h4>
+                        <p>Emerging party, won seats in 2022 Gujarat Assembly elections.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Gujarat.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Gujarat.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Gujarat, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Janata_Dal_%28United%29_flag.svg" class="state-party-logo" alt="JD(U) Logo">
+                        <h4>Janata Dal (United) [JD(U)]</h4>
+                        <p>Regional party, part of alliances in Gujarat.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- RAJASTHAN -->
+            <button class="state-collapsible">Rajasthan</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Currently ruling party in Rajasthan.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Main opposition party, with a long history in Rajasthan.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Aam_Aadmi_Party_Flag.svg" class="state-party-logo" alt="AAP Logo">
+                        <h4>Aam Aadmi Party (AAP)</h4>
+                        <p>Emerging party, contesting elections in Rajasthan.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Rajasthan.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Rajasthan.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Rajasthan, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Janata_Dal_%28United%29_flag.svg" class="state-party-logo" alt="JD(U) Logo">
+                        <h4>Janata Dal (United) [JD(U)]</h4>
+                        <p>Regional party, part of alliances in Rajasthan.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- PUNJAB -->
+            <button class="state-collapsible">Punjab</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Aam_Aadmi_Party_Flag.svg" class="state-party-logo" alt="AAP Logo">
+                        <h4>Aam Aadmi Party (AAP)</h4>
+                        <p>Currently ruling party in Punjab, led by Bhagwant Mann.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Major opposition party, with a long history in Punjab.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>National party, with a growing presence in Punjab.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Punjab.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Punjab.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Punjab, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Flag_of_Shiromani_Akali_Dal.svg" class="state-party-logo" alt="SAD Logo">
+                        <h4>Shiromani Akali Dal (SAD)</h4>
+                        <p>Major regional party, influential among Sikhs in Punjab.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- HARYANA -->
+            <button class="state-collapsible">Haryana</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Currently ruling party in Haryana.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Main opposition party, with a long history in Haryana.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Aam_Aadmi_Party_Flag.svg" class="state-party-logo" alt="AAP Logo">
+                        <h4>Aam Aadmi Party (AAP)</h4>
+                        <p>Emerging party, contesting elections in Haryana.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Haryana.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Haryana.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Haryana, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Janata_Dal_%28United%29_flag.svg" class="state-party-logo" alt="JD(U) Logo">
+                        <h4>Janata Dal (United) [JD(U)]</h4>
+                        <p>Regional party, part of alliances in Haryana.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ASSAM -->
+            <button class="state-collapsible">Assam</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Currently ruling party in Assam, part of the NDA alliance.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Main opposition party, with a long history in Assam.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/All_India_United_Democratic_Front_flag.png" class="state-party-logo" alt="AIUDF Logo">
+                        <h4>All India United Democratic Front (AIUDF)</h4>
+                        <p>Influential party among Assam's Muslim community, led by Badruddin Ajmal.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Asom_Gana_Parishad_flag.png" class="state-party-logo" alt="AGP Logo">
+                        <h4>Asom Gana Parishad (AGP)</h4>
+                        <p>Regional party, part of the NDA, known for Assam Movement roots.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Assam.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Assam.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Assam, led by Mayawati.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- CHHATTISGARH -->
+            <button class="state-collapsible">Chhattisgarh</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Currently ruling party in Chhattisgarh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Main opposition party, with a long history in Chhattisgarh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Chhattisgarh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Chhattisgarh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Chhattisgarh, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Janata_Dal_%28United%29_flag.svg" class="state-party-logo" alt="JD(U) Logo">
+                        <h4>Janata Dal (United) [JD(U)]</h4>
+                        <p>Regional party, part of alliances in Chhattisgarh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Janta_Congress_Chhattisgarh_flag.png" class="state-party-logo" alt="JCC(J) Logo">
+                        <h4>Janta Congress Chhattisgarh (JCC(J))</h4>
+                        <p>Regional party founded by Ajit Jogi, influential in Chhattisgarh politics.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- JHARKHAND -->
+            <button class="state-collapsible">Jharkhand</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Major party in Jharkhand, has formed government multiple times.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Key party, part of the ruling alliance in Jharkhand.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Jharkhand.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Jharkhand.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Jharkhand, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Janata_Dal_%28United%29_flag.svg" class="state-party-logo" alt="JD(U) Logo">
+                        <h4>Janata Dal (United) [JD(U)]</h4>
+                        <p>Regional party, part of alliances in Jharkhand.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Jharkhand_Mukti_Morcha_flag.png" class="state-party-logo" alt="JMM Logo">
+                        <h4>Jharkhand Mukti Morcha (JMM)</h4>
+                        <p>Major regional party, currently leading the state government.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- MADHYA PRADESH -->
+            <button class="state-collapsible">Madhya Pradesh</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Currently ruling party in Madhya Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Main opposition party, with a long history in Madhya Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Madhya Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Madhya Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Madhya Pradesh, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Janata_Dal_%28United%29_flag.svg" class="state-party-logo" alt="JD(U) Logo">
+                        <h4>Janata Dal (United) [JD(U)]</h4>
+                        <p>Regional party, part of alliances in Madhya Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Samajwadi_Party_flag.svg" class="state-party-logo" alt="SP Logo">
+                        <h4>Samajwadi Party (SP)</h4>
+                        <p>Regional party, has contested elections in Madhya Pradesh.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- BIHAR -->
+            <button class="state-collapsible">Bihar</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Major party in Bihar, part of the NDA alliance.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Key party, part of the Mahagathbandhan alliance in Bihar.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Janata_Dal_%28United%29_flag.svg" class="state-party-logo" alt="JD(U) Logo">
+                        <h4>Janata Dal (United) [JD(U)]</h4>
+                        <p>Major regional party, led by Nitish Kumar.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Rashtriya_Janata_Dal_flag.svg" class="state-party-logo" alt="RJD Logo">
+                        <h4>Rashtriya Janata Dal (RJD)</h4>
+                        <p>Major regional party, led by Lalu Prasad Yadav and Tejashwi Yadav.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Bihar, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Lok_Janshakti_Party_flag.svg" class="state-party-logo" alt="LJP Logo">
+                        <h4>Lok Janshakti Party (LJP)</h4>
+                        <p>Regional party, founded by Ram Vilas Paswan.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Hindustani_Awav_Morcha_flag.png" class="state-party-logo" alt="HAM Logo">
+                        <h4>Hindustani Awam Morcha (HAM)</h4>
+                        <p>Regional party, led by Jitan Ram Manjhi.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- TELANGANA -->
+            <button class="state-collapsible">Telangana</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Major party in Telangana, growing presence in recent years.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Currently ruling party in Telangana (2023 onwards).</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Bharat_Rashtra_Samithi_flag.png" class="state-party-logo" alt="BRS Logo">
+                        <h4>Bharat Rashtra Samithi (BRS)</h4>
+                        <p>Major regional party, formerly TRS, led by K. Chandrashekar Rao.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Telangana, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Telangana.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Telangana.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/All_India_Majlis-e-Ittehadul_Muslimeen_flag.svg" class="state-party-logo" alt="AIMIM Logo">
+                        <h4>All India Majlis-e-Ittehadul Muslimeen (AIMIM)</h4>
+                        <p>Influential party, especially in Hyderabad, led by Asaduddin Owaisi.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- HIMACHAL PRADESH -->
+            <button class="state-collapsible">Himachal Pradesh</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Major party in Himachal Pradesh, alternates power with INC.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Currently ruling party in Himachal Pradesh (2022 onwards).</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Himachal Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Himachal Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Himachal Pradesh, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Janata_Dal_%28United%29_flag.svg" class="state-party-logo" alt="JD(U) Logo">
+                        <h4>Janata Dal (United) [JD(U)]</h4>
+                        <p>Regional party, part of alliances in Himachal Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Himachal_Lokhit_Party_flag.png" class="state-party-logo" alt="HLP Logo">
+                        <h4>Himachal Lokhit Party (HLP)</h4>
+                        <p>Regional party, active in Himachal Pradesh politics.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- UTTARAKHAND -->
+            <button class="state-collapsible">Uttarakhand</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Currently ruling party in Uttarakhand.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Main opposition party, with a long history in Uttarakhand.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Uttarakhand.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Uttarakhand.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Uttarakhand, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Janata_Dal_%28United%29_flag.svg" class="state-party-logo" alt="JD(U) Logo">
+                        <h4>Janata Dal (United) [JD(U)]</h4>
+                        <p>Regional party, part of alliances in Uttarakhand.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Uttarakhand_Kranti_Dal_flag.png" class="state-party-logo" alt="UKD Logo">
+                        <h4>Uttarakhand Kranti Dal (UKD)</h4>
+                        <p>Regional party, played a role in the creation of Uttarakhand.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- GOA -->
+            <button class="state-collapsible">Goa</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Currently ruling party in Goa.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Main opposition party, with a long history in Goa.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Goa.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Goa.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Goa, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Maharashtrawadi_Gomantak_Party_flag.png" class="state-party-logo" alt="MGP Logo">
+                        <h4>Maharashtrawadi Gomantak Party (MGP)</h4>
+                        <p>Oldest regional party in Goa, influential in state politics.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Goa_Foward_Party_flag.png" class="state-party-logo" alt="GFP Logo">
+                        <h4>Goa Forward Party (GFP)</h4>
+                        <p>Regional party, active in Goa politics.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- MANIPUR -->
+            <button class="state-collapsible">Manipur</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Currently ruling party in Manipur.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Main opposition party, with a long history in Manipur.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Communist_Party_of_India_flag.svg" class="state-party-logo" alt="CPI Logo">
+                        <h4>Communist Party of India (CPI)</h4>
+                        <p>Left-wing party, with a presence in Manipur.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, with a presence in Manipur.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Bahujan_Samaj_Party_Logo.svg" class="state-party-logo" alt="BSP Logo">
+                        <h4>Bahujan Samaj Party (BSP)</h4>
+                        <p>National party with a presence in Manipur, led by Mayawati.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Naga_Peoples_Front_flag.png" class="state-party-logo" alt="NPF Logo">
+                        <h4>Naga People's Front (NPF)</h4>
+                        <p>Regional party, influential among Naga communities in Manipur.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Manipur_Peoples_Party_flag.png" class="state-party-logo" alt="MPP Logo">
+                        <h4>Manipur People's Party (MPP)</h4>
+                        <p>Oldest regional party in Manipur, active in state politics.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- MEGHALAYA -->
+            <button class="state-collapsible">Meghalaya</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/National_People%27s_Party_Flag.png" class="state-party-logo" alt="NPP Logo">
+                        <h4>National People's Party (NPP)</h4>
+                        <p>Currently ruling party in Meghalaya, led by Conrad Sangma.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Major opposition party, with a long history in Meghalaya.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>National party, with a presence in Meghalaya.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/United_Democratic_Party_flag.png" class="state-party-logo" alt="UDP Logo">
+                        <h4>United Democratic Party (UDP)</h4>
+                        <p>Major regional party, influential in Meghalaya politics.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/People%27s_Democratic_Front_flag.png" class="state-party-logo" alt="PDF Logo">
+                        <h4>People's Democratic Front (PDF)</h4>
+                        <p>Regional party, active in Meghalaya.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Hill_State_People%27s_Democratic_Party_flag.png" class="state-party-logo" alt="HSPDP Logo">
+                        <h4>Hill State People's Democratic Party (HSPDP)</h4>
+                        <p>Regional party, influential in Khasi Hills.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/All_India_Trinamool_Congress_flag.svg" class="state-party-logo" alt="AITC Logo">
+                        <h4>All India Trinamool Congress (AITC)</h4>
+                        <p>National party, recently active in Meghalaya politics.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- MIZORAM -->
+            <button class="state-collapsible">Mizoram</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mizo_National_Front_flag.png" class="state-party-logo" alt="MNF Logo">
+                        <h4>Mizo National Front (MNF)</h4>
+                        <p>Currently ruling party in Mizoram.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Major opposition party, with a long history in Mizoram.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>National party, with a presence in Mizoram.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Zoram_People%27s_Movement_flag.png" class="state-party-logo" alt="ZPM Logo">
+                        <h4>Zoram People's Movement (ZPM)</h4>
+                        <p>Regional party, influential in Mizoram politics.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/People%27s_Conference_flag.png" class="state-party-logo" alt="PC Logo">
+                        <h4>People's Conference (PC)</h4>
+                        <p>Regional party, active in Mizoram.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Maraland_Democratic_Front_flag.png" class="state-party-logo" alt="MDF Logo">
+                        <h4>Maraland Democratic Front (MDF)</h4>
+                        <p>Regional party, active in southern Mizoram.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/United_Democratic_Alliance_flag.png" class="state-party-logo" alt="UDA Logo">
+                        <h4>United Democratic Alliance (UDA)</h4>
+                        <p>Regional alliance, active in Mizoram politics.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- NAGALAND -->
+            <button class="state-collapsible">Nagaland</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Nationalist_Democratic_Progressive_Party_flag.png" class="state-party-logo" alt="NDPP Logo">
+                        <h4>Nationalist Democratic Progressive Party (NDPP)</h4>
+                        <p>Currently ruling party in Nagaland.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Naga_Peoples_Front_flag.png" class="state-party-logo" alt="NPF Logo">
+                        <h4>Naga People's Front (NPF)</h4>
+                        <p>Major regional party, influential in Nagaland politics.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>National party, with a presence in Nagaland.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>National party, part of the ruling alliance in Nagaland.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Janata_Dal_%28United%29_flag.svg" class="state-party-logo" alt="JD(U) Logo">
+                        <h4>Janata Dal (United) [JD(U)]</h4>
+                        <p>Regional party, active in Nagaland politics.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/United_Naga_Democratic_Party_flag.png" class="state-party-logo" alt="UNDP Logo">
+                        <h4>United Naga Democratic Party (UNDP)</h4>
+                        <p>Regional party, active in Nagaland.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Independent_Peoples_Party_flag.png" class="state-party-logo" alt="IPP Logo">
+                        <h4>Independent People's Party (IPP)</h4>
+                        <p>Regional party, active in Nagaland.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- SIKKIM -->
+            <button class="state-collapsible">Sikkim</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Sikkim_Krantikari_Morcha_flag.png" class="state-party-logo" alt="SKM Logo">
+                        <h4>Sikkim Krantikari Morcha (SKM)</h4>
+                        <p>Currently ruling party in Sikkim.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Sikkim_Democratic_Front_flag.png" class="state-party-logo" alt="SDF Logo">
+                        <h4>Sikkim Democratic Front (SDF)</h4>
+                        <p>Major opposition party, ruled Sikkim for over two decades.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>National party, with a presence in Sikkim.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>National party, with a presence in Sikkim.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Sikkim_United_Front_Party_flag.png" class="state-party-logo" alt="SUFP Logo">
+                        <h4>Sikkim United Front Party (SUFP)</h4>
+                        <p>Regional party, active in Sikkim politics.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Sikkim_National_Peoples_Party_flag.png" class="state-party-logo" alt="SNPP Logo">
+                        <h4>Sikkim National People's Party (SNPP)</h4>
+                        <p>Regional party, active in Sikkim politics.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Sikkim_Progressive_Alliance_flag.png" class="state-party-logo" alt="SPA Logo">
+                        <h4>Sikkim Progressive Alliance (SPA)</h4>
+                        <p>Regional alliance, active in Sikkim politics.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- TRIPURA -->
+            <button class="state-collapsible">Tripura</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Currently ruling party in Tripura.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Major opposition party, with a long history in Tripura.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Communist_Party_of_India_%28Marxist%29_flag.svg" class="state-party-logo" alt="CPI(M) Logo">
+                        <h4>Communist Party of India (Marxist) [CPI(M)]</h4>
+                        <p>Major left party, ruled Tripura for decades.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Indigenous_Peoples_Front_of_Tripura_flag.png" class="state-party-logo" alt="IPFT Logo">
+                        <h4>Indigenous People's Front of Tripura (IPFT)</h4>
+                        <p>Regional party, influential among Tripuri people.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Tipra_Motha_Party_flag.png" class="state-party-logo" alt="TMP Logo">
+                        <h4>Tipra Motha Party (TMP)</h4>
+                        <p>Emerging regional party, influential in Tripura politics.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Trinamool_Congress_flag.png" class="state-party-logo" alt="AITC Logo">
+                        <h4>All India Trinamool Congress (AITC)</h4>
+                        <p>National party, active in Tripura politics.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Forward_Bloc_flag.png" class="state-party-logo" alt="FB Logo">
+                        <h4>All India Forward Bloc (AIFB)</h4>
+                        <p>Left-wing party, with a presence in Tripura.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ARUNACHAL PRADESH -->
+            <button class="state-collapsible">Arunachal Pradesh</button>
+            <div class="state-content">
+                <div class="state-party-list">
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" class="state-party-logo" alt="BJP Logo">
+                        <h4>Bharatiya Janata Party (BJP)</h4>
+                        <p>Currently ruling party in Arunachal Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Indian_National_Congress_hand_logo.svg" class="state-party-logo" alt="INC Logo">
+                        <h4>Indian National Congress (INC)</h4>
+                        <p>Major opposition party, with a long history in Arunachal Pradesh.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Janata_Dal_%28United%29_flag.svg" class="state-party-logo" alt="JD(U) Logo">
+                        <h4>Janata Dal (United) [JD(U)]</h4>
+                        <p>Regional party, active in Arunachal Pradesh politics.</p>
+                    </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/People%27s_Party_of_Arunachal_flag.png" class="state-party-logo" alt="PPA Logo">
+                        <h4>People's Party of Arunachal (PPA)</h4>
+                        <p>Major regional party, influential in Arunachal Pradesh.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/National_People%27s_Party_flag.png" class="state-party-logo" alt="NPP Logo">
+                        <h4>National People's Party (NPP)</h4>
+                        <p>National party, with a presence in Arunachal Pradesh.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/All_India_Trinamool_Congress_flag.svg" class="state-party-logo" alt="AITC Logo">
+                        <h4>All India Trinamool Congress (AITC)</h4>
+                        <p>National party, active in Arunachal Pradesh politics.</p>
+                        </div>
+                    <div class="state-party-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Arunachal_Congress_flag.png" class="state-party-logo" alt="AC Logo">
+                        <h4>Arunachal Congress (AC)</h4>
+                        <p>Regional party, active in Arunachal Pradesh politics.</p>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var stateColl = document.getElementsByClassName("state-collapsible");
+                for (var i = 0; i < stateColl.length; i++) {
+                    stateColl[i].addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        var content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                    });
+                }
+            </script>
+            <!-- END: State-wise Political Parties -->
+        </div>
+    </div>
+</body>
+</html> 

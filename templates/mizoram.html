@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mizoram - State Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/stylenav.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .state-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .state-header h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .state-emblem {
+            width: 200px;
+            height: auto;
+            margin: 1rem auto;
+        }
+
+        .info-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #FF9933;
+        }
+
+        .info-section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FF9933;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .info-card h3 {
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .party-section {
+            margin: 2rem 0;
+        }
+
+        .party-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .party-logo {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .party-info h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .party-info p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #FF9933;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #FF8000;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="navigation_bar.html">HOME</a></li>
+            <li><a href="india.html">MAP</a></li>
+            <li class="dropdown">
+                <a href="#">STATES</a>
+                <div class="dropdown-content">
+                    <div class="column">
+                        <a href="ap.html">Andhra Pradesh</a>
+                        <a href="arunachal.html">Arunachal Pradesh</a>
+                        <a href="assam.html">Assam</a>
+                        <a href="bihar.html">Bihar</a>
+                        <a href="westbengal.html">Bengal</a>
+                        <a href="chhattisgarh.html">Chhatisgard</a>
+                        <a href="Goa.html">Goa</a>
+                    </div>
+                    <div class="column">
+                        <a href="Gujarat.html">Gujarat</a>
+                        <a href="haryana.html">Haryana</a>
+                        <a href="himachal.html">Himachal Pradesh</a>
+                        <a href="Jharkhand.html">Jharkhand</a>
+                        <a href="karnataka.html">Karnataka</a>
+                        <a href="kerala.html">Kerala</a>
+                        <a href="madhyapradesh.html">Madhaya Pradesh</a>
+                    </div>
+                    <div class="column">
+                        <a href="maharstra.html">Maharastra</a>
+                        <a href="meghalaya.html">Meghalaya</a>
+                        <a href="mizoram.html">Mizoram</a>
+                        <a href="nagaland.html">Nagaland</a>
+                        <a href="odisha.html">Odisha</a>
+                        <a href="punjab.html">Punjab</a>
+                        <a href="rajasthan.html">Rajasthan</a>
+                    </div>
+                    <div class="column">
+                        <a href="sikkim.html">Sikkim</a>
+                        <a href="tamilnadu.html">Tamil nadu</a>
+                        <a href="telangana.html">Telangana</a>
+                        <a href="uttarpradesh.html">Uttar Pradesh</a>
+                        <a href="uttarakhand.html">Uttakhand</a>  
+                        <a href="tripura.html">Tripura</a>  
+                        <a href="">Jammu and Kashmir</a>            
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+ 
+    <div class="wrapper">
+        <div align="center">
+        <h1>Mizoram</h1>
+        <img src="data:image/jpeg;base64,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" height="150" width="150" align="center">
+        
+        </div>
+        <h4>Emblem of Mizoram</h4>
+        <p>
+            The State Emblem of India is the national emblem of the Republic of India and is used by the union government, many state governments, and other government agencies. The emblem is an adaptation of the Lion Capital of Ashoka, an ancient sculpture dating back to 280 BCE during the Maurya Empire. The statue is a three dimensional emblem showing four lions. It became the emblem of the Dominion of India in December 1947,[1] and later the emblem of the Republic of India. The State Emblem of India is an official seal of the Government of India. It is used as the national emblem of India and appears on official documents, currency and passports.
+
+The emblem was adopted by the Government of India on 26 January 1950, the day that India became a republic. It is based on the Lion Capital of Ashoka, a sculpture that was originally erected at the Sarnath, a place where Gautama Buddha first taught the Dharma, now in Uttar Pradesh, India. The emblem features four Asiatic lions standing back to back, symbolizing power, courage, confidence and faith. The lions are mounted on a circular abacus and the abacus is mounted on a lotus. The wheel of the law, Dharmachakra, is in the center of the abacus. The wheel has 24 spokes, which symbolize the progress and evolution of human civilization.
+
+The motto "Satyameva Jayate" ("truth alone triumphs") is inscribed below the abacus in Devanagari script, which is written from left to right. The use of the emblem is governed by the State Emblem of India (Prohibition of Improper Use) Act, 2005 and the State Emblem of India (Regulation of Use) Rules, 2007
+               
+        </p>
+        <h1>Mizoram Parties</h1>
+    </div>
+    <div class="wrapper">
+       <div align="center">
+                <h2>Ruling Party</h2>
+                
+                <img src="data:image/jpeg;base64,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" height="100" width="100" align="center">
+                    
+                    
+                        <p>
+                            The Zoram People's Movement (abbreviated: ZPM) is an alliance of six regional parties formed under the leadership of MLA and former IPS Officer Lalduhoma.[7] The party believes in secularism and the protection of religious minorities in India.[8] In 2023 Mizoram Assembly polls, the party won 27 seats out of 40 seats and Lalduhoma became the Chief Minister of Mizoram.[9]
+
+In the 2018 Mizoram Legislative Assembly election, Zoram People's Movement had emerged. It supported some independent candidates with the same symbol, flag and policy, and won 8 seats.[10] Zoram People's Movement was reformed as a political party from a movement group. Mizoram People's Conference left the alliance in 2019[11] due to ZPM becoming a political party.
+
+In 2020, some members of ZNP left the alliance due to the election of their party, along with issues assigning a new party leader and reforming Zoram Nationalist Party (ZNP).
+
+In 2023, the party won all 11 wards in the newly formed Lunglei Municipal Council.[1
+                            </p>
+                            
+                                <div align="center">
+                        <h2>Opposition Party</h2>
+                
+                        <img src="https://mnfparty.org/wp-content/uploads/2022/10/ezgif-2-b9243e38f2e4.jpg" height="100" width="100"  align="center">
+                        </div>
+                        <p>
+                            The Mizo National Front (abbr. MNF) is a regional political party in Mizoram, India. MNF emerged from the Mizo National Famine Front, which was formed by Pu Laldenga to protest against the inaction of the Government of India towards the famine situation in the Mizo areas of the Assam state in 1959. It staged a major uprising in 1966, followed by years of underground activities. In 1986, it signed the Mizoram Accord with the Government of India, renouncing secession and violence. The MNF then began contesting elections and has formed state government in Mizoram three times. It is currently the state's ruling party, with its president, Zoramthanga, as the Former Chief Minister of Mizoram
+                            </p>
+                
+                
+            
+        </div>
+        
+    </body>
+</html>

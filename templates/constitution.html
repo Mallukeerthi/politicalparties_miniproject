@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Constitution Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FF9933;
+        }
+
+        h2 {
+            color: #444;
+            margin: 1.5rem 0 1rem;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #FF9933;
+        }
+
+        .info-card h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #FF9933;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #FF8000;
+        }
+
+        .preamble {
+            background: #fff3e6;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .preamble p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .feature-item h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FF9933;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 3px solid #FF9933;
+            margin: 2.5rem 0 2rem 0;
+        }
+        .icon {
+            width: 32px;
+            height: 32px;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+        .collapsible {
+            background: #f8f9fa;
+            color: #333;
+            cursor: pointer;
+            padding: 1rem;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            transition: background 0.3s;
+        }
+        .collapsible.active, .collapsible:hover {
+            background: #ffe0b2;
+        }
+        .collapsible-content {
+            padding: 0 1.5rem 1rem 1.5rem;
+            display: none;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #FF9933;
+            border-radius: 2px;
+        }
+        .timeline-event {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .timeline-event:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 4px solid #FF9933;
+            border-radius: 50%;
+            top: 0;
+        }
+        .timeline-content {
+            margin-left: 40px;
+            background: #fff3e6;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .quote-block {
+            background: #e3f2fd;
+            border-left: 5px solid #1976d2;
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #1976d2;
+            border-radius: 8px;
+        }
+        .tooltip {
+            border-bottom: 1px dotted #333;
+            cursor: help;
+            position: relative;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 220px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -110px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="navigation_bar.html" class="back-button">← Back to Home</a>
+        <div class="content">
+            <h1>Constitution of India</h1>
+            
+            <div class="image-container">
+                <img src="https://www.india.gov.in/sites/upload_files/npi/files/coi_part_full.jpg" alt="Indian Constitution" style="max-width:400px; margin: 2rem 1rem 0 1rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                <img src="https://www.culturalindia.net/iliimages/Dr-BR-Ambedkar-ili-96-img-1.jpg" alt="Dr. B. R. Ambedkar" style="max-width:300px; margin: 2rem 1rem 0 1rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                <img src="https://www.gktoday.in/wp-content/uploads/2015/11/constituent-assembly.jpg" alt="Constituent Assembly of India" style="max-width:400px; margin: 2rem 1rem 0 1rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            </div>
+
+            <div class="preamble">
+                <p>"WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC and to secure to all its citizens:</p>
+                <p>JUSTICE, social, economic and political;</p>
+                <p>LIBERTY of thought, expression, belief, faith and worship;</p>
+                <p>EQUALITY of status and of opportunity;</p>
+                <p>and to promote among them all</p>
+                <p>FRATERNITY assuring the dignity of the individual and the unity and integrity of the Nation;</p>
+                <p>IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION."</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Overview</h3>
+                <p>The Constitution of India is the supreme law of India. It was adopted by the Constituent Assembly on 26 November 1949 and came into effect on 26 January 1950. The constitution declares India a sovereign, socialist, secular, democratic republic, assuring its citizens justice, equality, and liberty.</p>
+            </div>
+
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Federal System</h3>
+                    <p>The Constitution establishes a federal system of government with a strong central government. It divides powers between the Union and State governments.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Parliamentary Democracy</h3>
+                    <p>India follows a parliamentary form of government where the executive is responsible to the legislature. The President is the head of state, while the Prime Minister is the head of government.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Fundamental Rights</h3>
+                    <p>The Constitution guarantees six fundamental rights to all citizens: Right to Equality, Right to Freedom, Right against Exploitation, Right to Freedom of Religion, Cultural and Educational Rights, and Right to Constitutional Remedies.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Directive Principles</h3>
+                    <p>These are guidelines for the government to establish a just society. They are not enforceable by courts but are fundamental in governance.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Independent Judiciary</h3>
+                    <p>The Constitution establishes an independent judiciary with the Supreme Court at the apex, followed by High Courts and subordinate courts.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Secularism</h3>
+                    <p>The Constitution ensures equal treatment of all religions and maintains a separation between religion and state.</p>
+                </div>
+            </div>
+
+            <h2>Constitutional Amendments</h2>
+            <div class="info-card">
+                <h3>Amendment Process</h3>
+                <p>The Constitution can be amended by Parliament. Most amendments require a two-thirds majority in both houses of Parliament, while some require ratification by state legislatures.</p>
+            </div>
+
+            <h2>Important Articles</h2>
+            <div class="info-card">
+                <h3>Key Articles</h3>
+                <p>Article 14: Right to Equality</p>
+                <p>Article 19: Right to Freedom</p>
+                <p>Article 21: Right to Life and Personal Liberty</p>
+                <p>Article 370: Special Status to Jammu and Kashmir (repealed in 2019)</p>
+                <p>Article 356: President's Rule</p>
+            </div>
+
+            <h2>Constitutional Bodies</h2>
+            <div class="info-card">
+                <h3>Major Bodies</h3>
+                <p>Election Commission of India</p>
+                <p>Comptroller and Auditor General of India</p>
+                <p>Union Public Service Commission</p>
+                <p>National Human Rights Commission</p>
+                <p>Finance Commission</p>
+            </div>
+
+            <hr class="section-divider">
+            <h2><img class="icon" src="https://img.icons8.com/ios-filled/50/1976d2/justice.png" alt="Justice Icon"> Fundamental Rights</h2>
+            <button class="collapsible">Right to Equality</button>
+            <div class="collapsible-content">
+                <p>Ensures equal treatment before the law, prohibits discrimination on grounds of religion, race, caste, sex, or place of birth. <span class="tooltip">(Articles 14-18)<span class="tooltiptext">Covers equality before law, abolition of untouchability, and equality of opportunity.</span></span></p>
+                <ul>
+                    <li>Example: No discrimination in public employment.</li>
+                </ul>
+            </div>
+            <button class="collapsible">Right to Freedom</button>
+            <div class="collapsible-content">
+                <p>Guarantees freedom of speech, expression, assembly, association, movement, residence, and profession. <span class="tooltip">(Articles 19-22)<span class="tooltiptext">Includes protection in respect of conviction for offences and protection of life and personal liberty.</span></span></p>
+                <ul>
+                    <li>Example: Freedom to form associations or unions.</li>
+                </ul>
+            </div>
+            <button class="collapsible">Right against Exploitation</button>
+            <div class="collapsible-content">
+                <p>Prohibits human trafficking, forced labour, and child labour. <span class="tooltip">(Articles 23-24)<span class="tooltiptext">Prohibits traffic in human beings and forced labour, and employment of children in hazardous jobs.</span></span></p>
+                <ul>
+                    <li>Example: Ban on child labour in factories.</li>
+                </ul>
+            </div>
+            <button class="collapsible">Right to Freedom of Religion</button>
+            <div class="collapsible-content">
+                <p>Freedom to practice, profess, and propagate any religion. <span class="tooltip">(Articles 25-28)<span class="tooltiptext">Freedom of conscience and free profession, practice and propagation of religion.</span></span></p>
+                <ul>
+                    <li>Example: Right to manage religious affairs.</li>
+                </ul>
+            </div>
+            <button class="collapsible">Cultural and Educational Rights</button>
+            <div class="collapsible-content">
+                <p>Protects the rights of cultural, religious, and linguistic minorities. <span class="tooltip">(Articles 29-30)<span class="tooltiptext">Right of minorities to establish and administer educational institutions.</span></span></p>
+                <ul>
+                    <li>Example: Minority schools and colleges.</li>
+                </ul>
+            </div>
+            <button class="collapsible">Right to Constitutional Remedies</button>
+            <div class="collapsible-content">
+                <p>Allows citizens to move the courts for enforcement of rights. <span class="tooltip">(Article 32)<span class="tooltiptext">Empowers the Supreme Court to issue writs for enforcement of rights.</span></span></p>
+                <ul>
+                    <li>Example: Filing a writ petition in Supreme Court.</li>
+                </ul>
+            </div>
+            <hr class="section-divider">
+            <h2><img class="icon" src="https://img.icons8.com/ios-filled/50/43a047/checked-checkbox.png" alt="Duties Icon"> Fundamental Duties</h2>
+            <button class="collapsible">List of Fundamental Duties</button>
+            <div class="collapsible-content">
+                <ul>
+                    <li>To abide by the Constitution and respect its ideals and institutions, the National Flag and the National Anthem.</li>
+                    <li>To cherish and follow the noble ideals which inspired our national struggle for freedom.</li>
+                    <li>To uphold and protect the sovereignty, unity and integrity of India.</li>
+                    <li>To defend the country and render national service when called upon to do so.</li>
+                    <li>To promote harmony and the spirit of common brotherhood amongst all the people of India.</li>
+                    <li>To value and preserve the rich heritage of our composite culture.</li>
+                    <li>To protect and improve the natural environment.</li>
+                    <li>To develop the scientific temper, humanism and the spirit of inquiry and reform.</li>
+                    <li>To safeguard public property and to abjure violence.</li>
+                    <li>To strive towards excellence in all spheres of individual and collective activity.</li>
+                    <li>To provide opportunities for education to children between the age of six and fourteen years.</li>
+                </ul>
+            </div>
+            <hr class="section-divider">
+            <h2><img class="icon" src="https://img.icons8.com/ios-filled/50/fbc02d/idea.png" alt="Directive Icon"> Directive Principles of State Policy</h2>
+            <div class="info-card">
+                <h3>Key Directive Principles</h3>
+                <ul>
+                    <li>Promote the welfare of the people by securing a social order permeated by justice.</li>
+                    <li>Provide adequate means of livelihood for all citizens.</li>
+                    <li>Equal pay for equal work for both men and women.</li>
+                    <li>Protection of children and youth against exploitation.</li>
+                    <li>Promotion of educational and economic interests of Scheduled Castes, Scheduled Tribes, and other weaker sections.</li>
+                    <li>Separation of judiciary from the executive.</li>
+                    <li>Promotion of international peace and security.</li>
+                </ul>
+            </div>
+            <hr class="section-divider">
+            <h2><img class="icon" src="https://img.icons8.com/ios-filled/50/ff7043/timeline.png" alt="Timeline Icon"> Timeline of Major Amendments</h2>
+            <div class="timeline">
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <strong>1951:</strong> First Amendment - Added restrictions to freedom of speech, protected land reform laws.
+                    </div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <strong>1971:</strong> 24th Amendment - Affirmed Parliament's power to amend any part of the Constitution.
+                    </div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <strong>1976:</strong> 42nd Amendment - Known as the "Mini-Constitution", made sweeping changes including the addition of Fundamental Duties.
+                    </div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <strong>1978:</strong> 44th Amendment - Restored certain rights curtailed during the Emergency.
+                    </div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <strong>2002:</strong> 86th Amendment - Made education a fundamental right for children aged 6 to 14.
+                    </div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <strong>2019:</strong> 103rd Amendment - Introduced 10% reservation for Economically Weaker Sections (EWS).
+                    </div>
+                </div>
+            </div>
+            <hr class="section-divider">
+            <h2><img class="icon" src="https://img.icons8.com/ios-filled/50/8e24aa/organization.png" alt="Bodies Icon"> Constitutional Bodies</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Election Commission of India</h3>
+                    <p>Conducts free and fair elections to the Parliament, State Legislatures, and the offices of President and Vice-President.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Comptroller and Auditor General (CAG)</h3>
+                    <p>Audits government expenditure and ensures accountability of public funds.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Union Public Service Commission (UPSC)</h3>
+                    <p>Conducts examinations for recruitment to various civil services of the Government of India.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Finance Commission</h3>
+                    <p>Recommends the distribution of tax revenues between the Union and the States.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>National Human Rights Commission (NHRC)</h3>
+                    <p>Protects and promotes human rights in India.</p>
+                </div>
+            </div>
+            <div class="quote-block">
+                "The Constitution is not a mere lawyers' document, it is a vehicle of Life, and its spirit is always the spirit of Age."<br>– B. R. Ambedkar
+            </div>
+            <script>
+                // Collapsible sections
+                var coll = document.getElementsByClassName("collapsible");
+                for (var i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        var content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                    });
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Results - Past 5 Years</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylenav.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .election-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .election-header h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .year-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #FF9933;
+        }
+
+        .year-section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FF9933;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .result-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .result-card h3 {
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .party-result {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .party-name {
+            font-weight: 500;
+        }
+
+        .party-seats {
+            font-weight: 600;
+            color: #FF9933;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #FF9933;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #FF8000;
+        }
+
+        .election-type {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .total-seats {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="navigation_bar.html">HOME</a></li>
+            <li><a href="india.html">MAP</a></li>
+            <div class="dropdown">
+                <li><a href="#">STATES</a>
+                <ul class="dropdown-content">
+                    <div class="column">
+                        <a href="ap.html">Andhra Pradesh</a>
+                        <a href="arunachal.html">Arunachal Pradesh</a>
+                        <a href="assam.html">Assam</a>
+                        <a href="bihar.html">Bihar</a>
+                        <a href="westbengal.html">Bengal</a>
+                        <a href="chhattisgarh.html">Chhatisgard</a>
+                        <a href="Goa.html">Goa</a>
+                    </div>
+                    <div class="column">
+                        <a href="Gujarat.html">Gujarat</a>
+                        <a href="haryana.html">Haryana</a>
+                        <a href="himachal.html">Himachal Pradesh</a>
+                        <a href="Jharkhand.html">Jharkhand</a>
+                        <a href="karnataka.html">Karnataka</a>
+                        <a href="kerala.html">Kerala</a>
+                        <a href="madhyapradesh.html">Madhaya Pradesh</a>
+                    </div>
+                    <div class="column">
+                        <a href="maharstra.html">Maharastra</a>
+                        <a href="meghalaya.html">Meghalaya</a>
+                        <a href="mizoram.html">Mizoram</a>
+                        <a href="nagaland.html">Nagaland</a>
+                        <a href="odisha.html">Odisha</a>
+                        <a href="punjab.html">Punjab</a>
+                        <a href="rajasthan.html">Rajasthan</a>
+                    </div>
+                    <div class="column">
+                        <a href="sikkim.html">Sikkim</a>
+                        <a href="tamilnadu.html">Tamil nadu</a>
+                        <a href="telangana.html">Telangana</a>
+                        <a href="uttarpradesh.html">Uttar Pradesh</a>
+                        <a href="uttarakhand.html">Uttakhand</a>  
+                        <a href="tripura.html">Tripura</a>  
+                        <a href="">Jammu and Kashmir</a>            
+                    </div>
+                </ul>
+            </li>
+            </div>
+            <li><a href="election-results.html">ELECTION RESULTS</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <a href="navigation_bar.html" class="back-button">← Back to Home</a>
+        <div class="content">
+            <div class="election-header">
+                <h1>Election Results (2019-2024)</h1>
+                <p>Comprehensive overview of state and national election results from the past 5 years</p>
+            </div>
+
+            <div class="year-section">
+                <h2>2024 State Elections</h2>
+                <div class="election-type">Assembly Elections</div>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Telangana</h3>
+                        <div class="party-result">
+                            <span class="party-name">INC</span>
+                            <span class="party-seats">64 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">BRS</span>
+                            <span class="party-seats">39 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">BJP</span>
+                            <span class="party-seats">8 seats</span>
+                        </div>
+                        <div class="total-seats">Total Seats: 119</div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>Rajasthan</h3>
+                        <div class="party-result">
+                            <span class="party-name">BJP</span>
+                            <span class="party-seats">115 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">INC</span>
+                            <span class="party-seats">69 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">Others</span>
+                            <span class="party-seats">16 seats</span>
+                        </div>
+                        <div class="total-seats">Total Seats: 200</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <h2>2023 State Elections</h2>
+                <div class="election-type">Assembly Elections</div>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Karnataka</h3>
+                        <div class="party-result">
+                            <span class="party-name">INC</span>
+                            <span class="party-seats">135 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">BJP</span>
+                            <span class="party-seats">66 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">JD(S)</span>
+                            <span class="party-seats">19 seats</span>
+                        </div>
+                        <div class="total-seats">Total Seats: 224</div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>Madhya Pradesh</h3>
+                        <div class="party-result">
+                            <span class="party-name">BJP</span>
+                            <span class="party-seats">163 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">INC</span>
+                            <span class="party-seats">66 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">Others</span>
+                            <span class="party-seats">1 seat</span>
+                        </div>
+                        <div class="total-seats">Total Seats: 230</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <h2>2022 State Elections</h2>
+                <div class="election-type">Assembly Elections</div>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Gujarat</h3>
+                        <div class="party-result">
+                            <span class="party-name">BJP</span>
+                            <span class="party-seats">156 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">INC</span>
+                            <span class="party-seats">17 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">AAP</span>
+                            <span class="party-seats">5 seats</span>
+                        </div>
+                        <div class="total-seats">Total Seats: 182</div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>Himachal Pradesh</h3>
+                        <div class="party-result">
+                            <span class="party-name">INC</span>
+                            <span class="party-seats">40 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">BJP</span>
+                            <span class="party-seats">25 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">Others</span>
+                            <span class="party-seats">3 seats</span>
+                        </div>
+                        <div class="total-seats">Total Seats: 68</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <h2>2021 State Elections</h2>
+                <div class="election-type">Assembly Elections</div>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>West Bengal</h3>
+                        <div class="party-result">
+                            <span class="party-name">TMC</span>
+                            <span class="party-seats">215 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">BJP</span>
+                            <span class="party-seats">77 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">Others</span>
+                            <span class="party-seats">2 seats</span>
+                        </div>
+                        <div class="total-seats">Total Seats: 294</div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>Tamil Nadu</h3>
+                        <div class="party-result">
+                            <span class="party-name">DMK</span>
+                            <span class="party-seats">133 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">AIADMK</span>
+                            <span class="party-seats">66 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">Others</span>
+                            <span class="party-seats">1 seat</span>
+                        </div>
+                        <div class="total-seats">Total Seats: 234</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <h2>2019 General Elections</h2>
+                <div class="election-type">Lok Sabha Elections</div>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>National Results</h3>
+                        <div class="party-result">
+                            <span class="party-name">BJP</span>
+                            <span class="party-seats">303 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">INC</span>
+                            <span class="party-seats">52 seats</span>
+                        </div>
+                        <div class="party-result">
+                            <span class="party-name">Others</span>
+                            <span class="party-seats">188 seats</span>
+                        </div>
+                        <div class="total-seats">Total Seats: 543</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
